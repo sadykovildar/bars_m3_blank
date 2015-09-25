@@ -1,0 +1,14 @@
+﻿syntax: regexp
+\.pyc$
+\.old$
+~$
+\.orig$
+demo\.sqlt$
+
+syntax: glob
+.project
+.pydevproject
+build/*
+dist/*
+src/m3.egg-info/*
+src/m3_core.egg-info/*
