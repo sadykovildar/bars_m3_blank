@@ -5,11 +5,11 @@ var onSelectAttrDisplay = '{{ component.column_name_on_select }}',
 function isGridSelected(grid, title, message){
 	var res = true;
 	if (!grid.getSelectionModel().hasSelection() ) {
-		Ext3.Msg.show({
+		Ext.Msg.show({
 		   title: title,
 		   msg: message,
-		   buttons: Ext3.Msg.OK,
-		   icon: Ext3.MessageBox.INFO
+		   buttons: Ext.Msg.OK,
+		   icon: Ext.MessageBox.INFO
 		});
 		res = false;
 	}
@@ -30,7 +30,7 @@ function selectValue(){
 
     var id,
         displayText,
-        grid = Ext3.getCmp('{{ component.grid.client_id}}');
+        grid = Ext.getCmp('{{ component.grid.client_id}}');
 
     if (!isGridSelected(grid, 'Выбор элемента', 'Выберите элемент из списка') ) {
         return;
@@ -44,7 +44,7 @@ function selectValue(){
         'Возможно он не приходит с ajax ответом, в JsonStore нет соответствующего поля, ' +
         'в гриде нет соотв. колонки или неправильно указан column_name_on_select!');
 
-    var win = Ext3.getCmp('{{ component.client_id}}');
+    var win = Ext.getCmp('{{ component.client_id}}');
     win.fireEvent('closed_ok', id, displayText);
     win.close();
 
@@ -53,21 +53,21 @@ function selectValue(){
 
 function selectRecord(){
     var record;
-    var grid = Ext3.getCmp('{{ component.grid.client_id}}');
+    var grid = Ext.getCmp('{{ component.grid.client_id}}');
     if (!isGridSelected(grid, 'Выбор элемента', 'Выберите элемент из списка') ) {
         return;
     }
     record = grid.getSelectionModel().getSelected();
-    var win = Ext3.getCmp('{{ component.client_id}}');
+    var win = Ext.getCmp('{{ component.client_id}}');
     win.fireEvent('closed_ok', record);
     win.close();
 }
 
 //методы для обеспечения множественного выбора
-Ext3.apply(win, {
+Ext.apply(win, {
 
     initMultiSelect:function(selectedItems) {
-        var grid = Ext3.getCmp('{{ component.grid.client_id}}');
+        var grid = Ext.getCmp('{{ component.grid.client_id}}');
         this.valueField = onSelectAttrId;
         this.checkedItems = this.extractSelectedData(selectedItems);
         this.grid = grid;
@@ -93,7 +93,7 @@ Ext3.apply(win, {
     },
 
     checkSelectedItems:function(selectedItems) {
-        this.grid = Ext3.getCmp('{{ component.grid.client_id}}');
+        this.grid = Ext.getCmp('{{ component.grid.client_id}}');
         this.valueField = onSelectAttrId;
         this.checkedItems = this.extractSelectedData(selectedItems);
         this.grid.getStore().on('load', this.onGridStoreLoad, this);
@@ -140,8 +140,8 @@ Ext3.apply(win, {
 
 function multiSelectValues() {
     var records = [],
-        win = Ext3.getCmp('{{ component.client_id}}'),
-        grid = Ext3.getCmp('{{ component.grid.client_id}}');
+        win = Ext.getCmp('{{ component.client_id}}'),
+        grid = Ext.getCmp('{{ component.grid.client_id}}');
 
     for (var checkedId in win.checkedItems) {
         if (win.checkedItems.hasOwnProperty(checkedId)) {
@@ -167,11 +167,11 @@ function multiSelectValues() {
         }
     }
     if (!records.length){
-        Ext3.Msg.show({
+        Ext.Msg.show({
             title: 'Выбор элементов',
             msg: 'Выберите элементы из списка',
-            buttons: Ext3.Msg.OK,
-            icon: Ext3.MessageBox.INFO
+            buttons: Ext.Msg.OK,
+            icon: Ext.MessageBox.INFO
         });
         return;
     }

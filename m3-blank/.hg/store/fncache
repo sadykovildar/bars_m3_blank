@@ -10,6 +10,7 @@ data/src/m3_blank/demo/proxy.pyc.i
 data/src/m3_blank/interface_demo/__init__.py.i
 data/src/m3_blank/Безымянная папка/TemplateListRenderMixin.py.i
 data/src/m3_blank/demo/column_filter.py.i
+data/src/m3_blank/demo/SelectListMixin.py.i
 data/src/m3_blank/demo/controller.py.i
 data/src/m3_blank/positions/models.pyc.i
 data/src/m3_blank/demo/models.pyc.i
@@ -21,6 +22,7 @@ data/src/m3_blank/interface_demo/child_pack.py.i
 data/src/m3_blank/.idea/misc.xml.i
 data/src/m3_blank/demo/app_meta.py.i
 data/src/m3_blank/.idea/modules.xml.i
+data/src/m3_blank/demo/PrintTemplateListMixin.py.i
 data/src/m3_blank/employees/ui.py.i
 data/src/m3_blank/demo/actions.pyc.i
 data/REQUIREMENTS.i
@@ -49,7 +51,7 @@ data/REQIREMENTS.i
 data/src/m3_blank/settings.pyc.i
 data/src/m3_blank/positions/app_meta.pyc.i
 data/src/m3_blank/demo/column_filter.pyc.i
-data/src/m3_blank/Безымянная папка/PrintTemplateListMixin.js.i
+data/.idea/vcs.xml.i
 data/.idea/.name.i
 data/.hgignore.i
 data/src/m3_blank/.idea/.name.i
@@ -58,6 +60,7 @@ data/src/m3_blank/.idea/vcs.xml.i
 data/src/m3_blank/employees/app_meta.py.i
 data/src/m3_blank/positions/ui.pyc.i
 data/README.md.i
+data/src/m3_blank/demo/SelectButton.py.i
 data/src/m3_blank/demo/__init__.py.i
 data/src/m3_blank/desktop/templates/master.html.i
 data/.idea/m3-blank.iml.i
@@ -66,7 +69,7 @@ data/src/m3_blank/employees/app_meta.pyc.i
 data/src/m3_blank/demo/__init__.pyc.i
 data/src/m3_blank/.idea/m3_blank.iml.i
 data/src/m3_blank/employees/ui.pyc.i
-data/.idea/vcs.xml.i
+data/src/m3_blank/Безымянная папка/PrintTemplateListMixin.js.i
 data/.idea/workspace.xml.i
 data/src/m3_blank/demo.sqlt.i
 data/src/m3_blank/Безымянная папка/BaseSelectListWindow.js.i
@@ -82,6 +85,7 @@ data/src/m3_blank/Безымянная папка/SelectListMixin.py.i
 data/src/m3_blank/interface_demo/base.py.i
 data/src/m3_blank/demo/app_meta.pyc.i
 data/src/m3_blank/positions/__init__.py.i
+data/src/m3_blank/demo/TemplateListRenderMixin.py.i
 data/src/m3_blank/employees/actions.py.i
 data/src/m3_blank/employees/__init__.pyc.i
 data/src/m3_blank/employees/models.pyc.i

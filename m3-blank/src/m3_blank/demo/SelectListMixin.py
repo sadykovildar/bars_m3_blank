@@ -1,5 +1,10 @@
 # coding: utf-8
 
+from  TemplateListRenderMixin import TemplateListRenderMixin
+from m3_ext.ui.controls.buttons import ExtButton
+
+
+
 class SelectListMixin(object):
     """
     Класс примесь, наделяющая форму справочника возможностями выбора.
@@ -33,11 +38,12 @@ class SelectListMixin(object):
         self.grid.read_only = True
 
         # Добавляем кнопку выбора
-        self.select_button = ExtButton(name='select_btn', text=_(u'Выбрать'))
+        self.select_button = ExtButton(name='select_btn', text=(u'Выбрать'))
         self.buttons.insert(0, self.select_button)
 
         self.column_name_on_select = self.on_select_column_display
         self.id_name_on_select = self.on_select_column_id
+
 
         # Если форма поддерживает выбор периода и статуса, то их нужно отключить
         if hasattr(self, 'records_date_field'):
@@ -69,7 +75,7 @@ class SelectListMixin(object):
             if self.select_record:
                 handler = 'selectRecord'
             else:
-                handler = 'selectValue'
+                handler = 'selectValue'     # handler = 'selectValue'
             self.grid._listeners['rowdblclick'] = handler
             self.select_button.handler = handler
             # Событие 65558. Включим топбар

@@ -17,6 +17,9 @@ from m3_ext.ui.containers.forms import ExtForm
 from m3_ext.ui.fields import simple as fields
 from m3_ext.ui.misc import store as stores
 
+from SelectListMixin import SelectListMixin
+from  TemplateListRenderMixin import TemplateListRenderMixin
+
 #------------------------------------------------------------------------------
 # Windows
 #------------------------------------------------------------------------------
@@ -178,13 +181,15 @@ class PersonListWindow(ExtWindow):
             grid.add_column(**column)
         return grid
 
+
+
     def _add_clear_filters(self):
         self.cancel_button = ExtButton(
             text=u'Закрыть',
             handler='function(){win.close();}')
 
 
-class EmployeeSelectWindow(ExtWindow):
+class EmployeeSelectWindow(SelectListMixin, ExtWindow, TemplateListRenderMixin):
     columns = {
         'header': u'Имя',
         'data_index': 'fname',
@@ -213,32 +218,31 @@ class EmployeeSelectWindow(ExtWindow):
 
     def __init__(self, *args, **kwargs):
         ExtWindow.__init__(self, *args, **kwargs)
+
         self.icon_cls = 'icon-application-view-list'
-        self.modal = False
         self.layout = 'border'
         self.width, self.height = 800, 600
-        self.maximized = False
-        self.maximizable = True
-        self.minimizable = False
         self.grid = self._create_grid()
         self.items.append(self.grid)
         self.init_component(*args, **kwargs)
 
-        self.button_align = self.align_right
-        self.select_button = ExtButton(
-            text=u'Выбрать',
-            handler='')     # Что тут должно быть? Где искать handlers?
+        self.on_select_column_display = 'sname'
+        # self.on_select_column_id = 'employee_id'
+        # self.select_record = True
 
-        self.footer_bar = ExtToolBar()
-        self.footer_bar.items.extend([
-            self.select_button,
-        ])
+        TemplateListRenderMixin.__init__(self, *args, **kwargs)
+        SelectListMixin.__init__(self)
+
+        self.render_globals = TemplateListRenderMixin.render_globals(self)
+
 
     def _create_grid(self):
         grid = ExtObjectGrid(region='center')
-        grid.read_only = True
         grid.dblclick_handler = None
         grid.groupable = False
+        # grid.top_bar = None
+        grid.action_edit = None
+        grid.url_edit = None
         for column in self.columns:
             grid.add_column(**column)
         return grid
